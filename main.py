@@ -45,15 +45,22 @@ def db_query(connection):
     try:
         cursor.execute(query)
         result = cursor.fetchall()
+        df = pd.DataFrame(data=result)
+        # drop column which has the row number
+        df = df.drop(df.columns[0], axis=1)
         print('Success! Would you like to export the results to a CSV file or view the results?')
         choice = input("""Enter 1 to export to CSV or 2 to view the results.
         \nEnter anything else to return to the main menu.""")
         if choice == '1':
             print('Now exporting...')
-            df = pd.DataFrame(data=result)
             df.to_csv('query_results.csv')
+            print('Complete! File name is called query_results.csv')
+            # close connection
+            cursor.close()
         elif choice == '2':
-            print('view')
+            print(f'{df}')
+            # close connection
+            cursor.close()
         else:
             print('Returning to menu!')
             # close connection
