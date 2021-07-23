@@ -49,7 +49,9 @@ def db_query(connection):
         choice = input("""Enter 1 to export to CSV or 2 to view the results.
         \nEnter anything else to return to the main menu.""")
         if choice == '1':
-            print('export')
+            print('Now exporting...')
+            df = pd.DataFrame(data=result)
+            df.to_csv('query_results.csv')
         elif choice == '2':
             print('view')
         else:
