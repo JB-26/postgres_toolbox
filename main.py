@@ -45,9 +45,17 @@ def db_query(connection):
     try:
         cursor.execute(query)
         result = cursor.fetchall()
-        print(result)
-        # close connection
-        cursor.close()
+        print('Success! Would you like to export the results to a CSV file or view the results?')
+        choice = input("""Enter 1 to export to CSV or 2 to view the results.
+        \nEnter anything else to return to the main menu.""")
+        if choice == '1':
+            print('export')
+        elif choice == '2':
+            print('view')
+        else:
+            print('Returning to menu!')
+            # close connection
+            cursor.close()
     except OperationalError as e:
         print(f"The error {e} occurred!")
 
