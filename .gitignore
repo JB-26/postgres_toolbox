@@ -1,2 +1,3 @@
 venv/
 query_results.csv
+db_info.json
