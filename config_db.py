@@ -4,6 +4,8 @@ from psycopg2 import OperationalError
 import json
 import os.path
 
+# TODO Create function that shows database info
+
 
 def create_connection():
     """
