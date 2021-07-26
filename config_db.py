@@ -4,8 +4,6 @@ from psycopg2 import OperationalError
 import json
 import os.path
 
-# TODO Create function that shows database info
-
 
 def create_connection():
     """
@@ -85,3 +83,19 @@ def save_login(db_name, db_user, db_password, db_host, db_port):
     with open("db_info.json", "w") as outfile:
         outfile.write(json_file)
     print('Complete! File saved as db_info.json')
+
+
+def db_info(db_dict):
+    """
+    :param db_dict: the connection information to a Postgres DB
+    """
+    print('Information on connected DB')
+    print(f"DB Name - {db_dict['dbname']}")
+    print(f"User - {db_dict['user']}")
+    print(f"Host - {db_dict['host']}")
+    print(f"Port - {db_dict['port']}")
+    print(f"SSL Mode - {db_dict['sslmode']}")
+    print(f"SSL Compression - {db_dict['sslcompression']}")
+    print(f"Minimum SSL Protocol Version - {db_dict['ssl_min_protocol_version']}")
+    print('Enter any keys to return to the menu')
+    any_key = input('')
