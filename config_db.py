@@ -7,7 +7,7 @@ import os.path
 
 def create_connection():
     """
-    :return: a connection object which can be used to interact with the Postgres DB
+    Creates a connection object which can be used to interact with the Postgres DB
     """
 
     while True:

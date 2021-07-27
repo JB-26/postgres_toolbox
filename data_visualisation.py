@@ -55,7 +55,6 @@ def build_graph_menu(df):
 
         graph_choice = input('Please enter a number - ')
         if graph_choice == '1':
-            print('1')
             vis_stat(df)
         elif graph_choice == '2':
             print('2')
@@ -102,3 +101,23 @@ def vis_stat(df):
         except AssertionError as error:
             print('Error!')
             print(f'Error details:\n{error}')
+
+
+def vis_distribution(df):
+    """
+    :param df: DataFrame for analysis and visualisation
+    Visualises data distribution with Seaborn
+    """
+    # set the theme
+    sns.set_theme(style="darkgrid")
+    print('Data distribution')
+
+
+def vis_categorical(df):
+    """
+    :param df: DataFrame for analysis and visualisation
+    Visualises categorical data
+    """
+    # set the theme
+    sns.set_theme(style="darkgrid")
+    print('Categorical data')

@@ -3,6 +3,8 @@ from config_db import create_connection
 from config_db import db_info
 from db_query import db_query
 
+# TODO Investigate sending the data of a query to Tableau
+
 
 # main method
 def main():
